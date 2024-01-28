@@ -26,12 +26,19 @@
 	
       <img id="playPauseBtn"  onclick="togglePlayPause()" />
   <div class="container">
-    <h1>光遇身高查询工具</h1>
+    <h1>小丞光遇国际服身高查询工具</h1>
     <form id="query-form">
-  <label>   <br> 
-    <input type="text" id="key-input" placeholder="请填入api key">
-    <br> 
-  <input type="text" id="id-input" placeholder="请填入长光遇ID">
+  <label>   <label>
+    登录渠道:
+    <select id="type-input" class="candle-type">  
+      <option value="Huawei">华为</option>  
+      <!-- <option value="Nintendo">任天堂</option>  -->
+    </select>  
+    <br>   
+      
+    <input type="text" id="id-input" placeholder="请填入光遇国际服token">  
+	<a target="_blank" href="https://live.radiance.thatgamecompany.com/account/auth/oauth_signin?token=&type=Huawei">点击这里前往获取token</a>
+	</a>
   </label>
   <br />
            <input id="submitBtn" type="submit" value="查询">
@@ -47,7 +54,58 @@
     </div>
       <br />
   </div>
-  <script src="./inc/js/gycx.js"></script>
-    <script src="./inc/js/kf.js"></script>
+  <script   
+  document.getElementById('type-input').addEventListener('change', function() {  
+  var typeInput = this.value;  
+});
+const form = document.getElementById("query-form");
+const typeInput = document.getElementById("type-input");
+const idInput = document.getElementById("id-input");
+
+form.addEventListener("submit", event => {
+  event.preventDefault();
+
+  if (!idInput.value) {
+    alert("请输入正确的id");
+  }
+  
+  const type = typeInput.value;
+  const id = idInput.value;
+  const url = 'https://api.t1qq.com/api/sky/sc/gjfsg?key=uc2WiIfj8iheIVUhdtbMw7Tn6I&type=Huawei&id=' + id;
+
+  fetch(url, {
+    method: 'GET',
+    timeout: 10000
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.code === '200') {
+        document.getElementById('results-text').innerHTML = `查询状态：查询成功`;
+        document.getElementById('result-candle').innerHTML = `剩余蜡烛数量: ${data.candle}`;
+        document.getElementById('result-cause').innerHTML = `变化原因: ${data.cause}`;
+        document.getElementById('result-change').innerHTML = `变化数量: ${data.change}`;   
+        document.getElementById('result-time').innerHTML = `变化时间: ${data.time}`;  
+      } else {
+        document.getElementById('results-text').innerHTML = `请重试：${data.msg}`;
+      }
+    })
+    .catch(function(error) {
+      console.error(error);
+      document.getElementById('results-text').innerHTML = '查询失败，近期未查询到数据或者ID未正确！请稍后重试：' + error.message;
+    });
+
+  function togglePlayPause() {
+    var audio = document.getElementById("myAudio");
+    var icon = document.getElementById("playPauseBtn");
+
+    if (audio.paused) {
+      audio.play();
+      icon.classList.add("rotate"); 
+    } else {
+      audio.pause();
+      icon.classList.remove("rotate");
+    }
+}
+</script>
 </body>
 </html>
