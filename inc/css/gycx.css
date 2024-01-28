@@ -25,7 +25,7 @@
   
   
       body {
-    background-image: url('https://sky.res.netease.com/pc/gw/20221215171426/img/bg_0040d9d.jpg');
+    background-image: url('./inc/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
