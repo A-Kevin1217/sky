@@ -1,111 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-   <meta charset="UTF-8">
-     <!--<meta name="keywords" content="光遇身高,sky光遇查询身高软件,sky光遇身高查询,sky光遇测身高,光遇测身高,光遇测量器">-->
-      <meta name="robots" content="noindex">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sky光遇测身高查询工具</title>
-  <link rel="icon" href="https://cos.t1qq.com/wp-content/uploads/2022/05/20220518234558438.png">
- <link rel="stylesheet" href="inc/css/gycx.css">     
-   <link rel="stylesheet" href="./inc/css/hsycmsAlert.css">
- <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
- <script src='https://s1.pstatp.com/cdn/expire-1-M/jquery/1.10.2/jquery.min.js'></script>
- <script src="./inc/js/hsycmsAlert.js"></script>
- <style> 
- body {
- background-image: url('./inc/bg.jpg');
- background-size: cover;
- background-repeat: no-repeat;
- background-attachment: fixed;
- height: 100%;
- }
- </style>
+    <link rel="stylesheet" type="text/css" href="身高查询.css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
 </head>
+
+<head>
+    <title>身高查询选择页面</title>
+</head>
+
 <body>
-	
-      <img id="playPauseBtn"  onclick="togglePlayPause()" />
-  <div class="container">
-    <h1>小丞光遇国际服身高查询工具</h1>
-    <form id="query-form">
-  <label>   <label>
-    登录渠道:
-    <select id="type-input" class="candle-type">  
-      <option value="Huawei">华为</option>  
-      <!-- <option value="Nintendo">任天堂</option>  -->
-    </select>  
-    <br>   
-      
-    <input type="text" id="id-input" placeholder="请填入光遇国际服token">  
-	<a target="_blank" href="https://live.radiance.thatgamecompany.com/account/auth/oauth_signin?token=&type=Huawei">点击这里前往获取token</a>
-	</a>
-  </label>
-  <br />
-           <input id="submitBtn" type="submit" value="查询">
-</form>
-    <div class="results">
-            <p>结果：</p>
-       <div id="results-res"><span>欢迎光之子</span></div>
-    <p id="results-sg"><span>提交key和光遇id查询结果</span></p>
-    <p id="result-candle"><span>登录光遇，打开光遇小精灵</span></p>
-   <p id="result-cause"><span>提问,发送id,复制长id</span></p>
-  <p id="result-change"><span>填入在这里面即可查询</span></p>
-   <p id="result-time"><span>——温暖的灵魂，终将会相遇——</span></p>
+    <div id="container">
+        <h2>小丞身高查询</h2>
+        <div class="select">
+		<a href="live.html" target="_self">
+		 <button id="live">查询国际服身高</button></a>
+		 <a href="beta.html" target="_self">
+		  <button id="beta">查询测试服身高</button></a>
+        </div>
     </div>
-      <br />
-  </div>
-  <script   
-  document.getElementById('type-input').addEventListener('change', function() {  
-  var typeInput = this.value;  
-});
-const form = document.getElementById("query-form");
-const typeInput = document.getElementById("type-input");
-const idInput = document.getElementById("id-input");
-
-form.addEventListener("submit", event => {
-  event.preventDefault();
-
-  if (!idInput.value) {
-    alert("请输入正确的id");
-  }
-  
-  const type = typeInput.value;
-  const id = idInput.value;
-  const url = 'https://api.t1qq.com/api/sky/sc/gjfsg?key=uc2WiIfj8iheIVUhdtbMw7Tn6I&type=Huawei&id=' + id;
-
-  fetch(url, {
-    method: 'GET',
-    timeout: 10000
-  })
-    .then(response => response.json())
-    .then(data => {
-      if (data.code === '200') {
-        document.getElementById('results-text').innerHTML = `查询状态：查询成功`;
-        document.getElementById('result-candle').innerHTML = `剩余蜡烛数量: ${data.candle}`;
-        document.getElementById('result-cause').innerHTML = `变化原因: ${data.cause}`;
-        document.getElementById('result-change').innerHTML = `变化数量: ${data.change}`;   
-        document.getElementById('result-time').innerHTML = `变化时间: ${data.time}`;  
-      } else {
-        document.getElementById('results-text').innerHTML = `请重试：${data.msg}`;
-      }
-    })
-    .catch(function(error) {
-      console.error(error);
-      document.getElementById('results-text').innerHTML = '查询失败，近期未查询到数据或者ID未正确！请稍后重试：' + error.message;
-    });
-
-  function togglePlayPause() {
-    var audio = document.getElementById("myAudio");
-    var icon = document.getElementById("playPauseBtn");
-
-    if (audio.paused) {
-      audio.play();
-      icon.classList.add("rotate"); 
-    } else {
-      audio.pause();
-      icon.classList.remove("rotate");
-    }
-}
-</script>
 </body>
+
 </html>

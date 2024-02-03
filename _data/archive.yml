@@ -1,9 +1,0 @@
-- type: dates
-  title: 文章
-  url: /dates/
-#- type: categories
-#  title: 分类
-#  url: /categories/
-- type: tags
-  title: 标签
-  url: /tags/

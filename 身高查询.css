@@ -1,0 +1,119 @@
+/* 页面背景 */
+body {
+   background-image: url('bg_0040d9d.jpg');
+    /* 替换为你的背景图像 */
+   background-size: cover;  
+     background-position: center;  
+     background-blur: 50px;  
+    /* 使用背景虚化效果 */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#live{
+	width: auto;
+	padding: 10px;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+#beta{
+	width: auto;
+	padding: 10px;
+	margin-left: 10px;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+/* 容器样式 */
+#container {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* 背景半透明白色 */
+    border: 2px solid #333;
+    /* 边框 */
+    border-radius: 50px;
+    padding: 20px;
+    max-width: 400px;
+	
+}
+
+/* 输入框和按钮样式 */
+#cookieInput {
+    width: auto;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+.center-container {
+    display: flex;
+    /* 使用Flexbox布局 */
+    justify-content: center;
+    /* 在水平方向上居中对齐 */
+    align-items: center;
+    /* 在垂直方向上居中对齐 */
+    height: 100px;
+    /* 设置容器高度为视口高度，以垂直居中 */
+}
+
+
+#cookieInput::placeholder {
+    color: #999;
+    /* 输入框占位符颜色 */
+}
+
+#saveKeyButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#saveKeyButton:hover {
+    background-color: #555;
+    /* 鼠标悬停时的颜色 */
+}
+
+#queryButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#login {
+    width: auto;
+    padding: 10px;
+	margin-left: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#queryButton:hover {
+    background-color: #555;
+    /* 鼠标悬停时的颜色 */
+}
+
+/* 结果框样式 */
+#result {
+    margin-top: 10px;
+    font-weight: bold;
+}

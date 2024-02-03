@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="身高查询.css">
+	<script src="live.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+</head>
+
+<head>
+    <title>国际服身高查询页面</title>
+</head>
+
+<body>
+    <div id="container">
+        <h2>小丞国际服身高查询页面</h2>
+		<a>仅支持华为登录查询</a>
+        <div class="center-container">
+            
+
+		<input type="text" id="cookieInput" placeholder="请输入cookie">
+		<a href="https://beta.radiance.thatgamecompany.com/account/auth/oauth_signin?type=Huawei&token" target="_blank">
+		 <button id="login">获取cookie</button></a>
+        </div>
+        <button id="queryButton" onclick="fetchData()">查询</button>
+        <div id="result" style="white-space: pre-line;"></div>
+    </div>
+</body>
+
+</html>
